@@ -1,12 +1,12 @@
 apiVersion: ec2.aws.crossplane.io/v1beta1
 kind: SecurityGroup
 metadata:
-  name: idp-janus-sg
+  name: idp-janus-sg-poc
 spec:
   forProvider:
     region: us-east-2
-    vpcId: vpc-0d4a3f0bad6c08b32
-    groupName: idp-janus-sg-hl
+    vpcId: vpc-0846e7ac89835cf8e
+    groupName: idp-janus-sg
     description: idp-janus security group
     ingress:
       - fromPort: 80

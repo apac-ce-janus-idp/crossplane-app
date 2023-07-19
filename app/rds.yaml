@@ -18,7 +18,7 @@ spec:
     skipFinalSnapshotBeforeDeletion: true
     deleteAutomatedBackups: true
     vpcSecurityGroupIds:
-      - sg-0c6d95b02e3872db9
+      - sg-02c89a37a4d8d614b
   providerConfigRef:
     name: aws-config-poc
   writeConnectionSecretToRef:

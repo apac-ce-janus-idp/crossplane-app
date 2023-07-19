@@ -8,9 +8,9 @@ spec:
     instanceType: t2.micro
     imageId: ami-069d73f3235b535bd
     keyName: idp-janus-ec2-key
-    subnetId: subnet-03c681e6ed258fdbb
-    vpcSecurityGroupIds:
-      - sg-06e096c45950ccd14
+    # subnetId: subnet-03c681e6ed258fdbb
+    securityGroupIds:
+      - sg-02c89a37a4d8d614b
     associatePublicIpAddress: true
     userData: IyEvYmluL2Jhc2gKc3VkbyB5dW0gdXBkYXRlIC15CnN1ZG8geXVtIGluc3RhbGwgcHl0aG9uMyBweXRob24zLXBpcCBnaXQgLXkKZ2l0IGNsb25lIGh0dHBzOi8vZ2l0aHViLmNvbS9hcGFjLWNlLWphbnVzLWlkcC9jcm9zc3BsYW5lLWFwcC5naXQKY2QgY3Jvc3NwbGFuZS1hcHAvcHl0aG9uLWFwcApwaXAzIGluc3RhbGwgLXIgcmVxdWlyZW1lbnRzLnR4dApweXRob24zIGFwcC5weQ==
   providerConfigRef:
