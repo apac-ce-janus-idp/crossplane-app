@@ -2,6 +2,10 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: "rds-deploy"
+  links:
+    - url: https://github.com/apac-ce-janus-idp/crossplane-app
+      title: Github Repo
+      icon: web
 spec:
   type: service
   owner: user:guest
