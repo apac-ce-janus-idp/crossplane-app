@@ -1,0 +1,26 @@
+apiVersion: database.aws.crossplane.io/v1beta1
+kind: RDSInstance
+metadata:
+  name: idp-janus-rds
+spec:
+  forProvider:
+    region: us-east-2
+    dbInstanceClass: db.t2.micro
+    dbInstanceIdentifier: idp-janus-db
+    masterUsername: admin
+    masterPasswordSecretRef:
+      name: idp-janus-db-credentials
+      namespace: crossplane-system
+      key: password
+    allocatedStorage: 20
+    engine: mysql
+    engineVersion: "5.7"
+    skipFinalSnapshotBeforeDeletion: true
+    deleteAutomatedBackups: true
+    vpcSecurityGroupIds:
+      - sg-0c6d95b02e3872db9
+  providerConfigRef:
+    name: aws-config-poc
+  writeConnectionSecretToRef:
+    name: idp-janus-db-connection
+    namespace: crossplane-system
