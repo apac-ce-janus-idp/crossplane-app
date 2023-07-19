@@ -70,12 +70,12 @@ spec:
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
-    - id: trigger_build
-      name: Trigger Build Pipeline
-      action: ibm:call-build-pipeline
-      input:
-        targetEnv:  ${{ parameters.targetEnv }}
-        deploymentName:  ${{ parameters.deploymentName }}
+    # - id: trigger_build
+    #   name: Trigger Build Pipeline
+    #   action: ibm:call-build-pipeline
+    #   input:
+    #     targetEnv:  ${{ parameters.targetEnv }}
+    #     deploymentName:  ${{ parameters.deploymentName }}
   output:
     links:
       - title: Repository
