@@ -1,0 +1,39 @@
+apiVersion: ec2.aws.crossplane.io/v1beta1
+kind: SecurityGroup
+metadata:
+  name: idp-janus-sg
+spec:
+  forProvider:
+    region: us-east-2
+    vpcId: vpc-0d4a3f0bad6c08b32
+    groupName: idp-janus-sg-hl
+    description: idp-janus security group
+    ingress:
+      - fromPort: 80
+        toPort: 80
+        ipProtocol: tcp
+        ipRanges:
+          - cidrIp: 0.0.0.0/0
+      - fromPort: 3306
+        toPort: 3306
+        ipProtocol: tcp
+        ipRanges:
+          - cidrIp: 0.0.0.0/0
+      - fromPort: 22
+        toPort: 22
+        ipProtocol: tcp
+        ipRanges:
+          - cidrIp: 0.0.0.0/0
+      - fromPort: 5000
+        toPort: 5000
+        ipProtocol: tcp
+        ipRanges:
+          - cidrIp: 0.0.0.0/0
+    egress:
+      - fromPort: 0
+        toPort: 65535
+        ipProtocol: "-1"
+        ipRanges:
+          - cidrIp: 0.0.0.0/0
+  providerConfigRef:
+    name: aws-config-poc
