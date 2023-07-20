@@ -1,0 +1,26 @@
+apiVersion: ec2.aws.crossplane.io/v1alpha1
+kind: Instance
+metadata:
+  name: idp-janus-ec2-poc-2
+spec:
+  forProvider:
+    region: us-east-2
+    instanceType: t2.micro
+    imageId: ami-069d73f3235b535bd
+    keyName: idp-janus-ec2-key
+    # subnetId: subnet-03c681e6ed258fdbb
+    securityGroupIds:
+      - sg-02c89a37a4d8d614b
+    associatePublicIpAddress: true
+    userData: <userdata>
+  providerConfigRef:
+    name: aws-config-poc
+
+# base64-encoded string for userData field 
+# echo -n '#!/bin/bash
+# sudo yum update -y
+# sudo yum install python3 python3-pip git -y
+# git clone https://github.com/apac-ce-janus-idp/crossplane-app.git
+# cd crossplane-app/python-app
+# pip3 install -r requirements.txt
+# python3 app.py' | base64s
